@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">YouTubeSearch</string>
+    <string name="txt_search_keyword_title">検索キーワード</string>
+    <string name="hint_keyword">検索キーワードの入力</string>
+    <string name="btn_search">検索</string>
+    <string name="empty_message">データがありません。</string>
+    <string name="page_unit">件</string>
+    <string name="dialog_receiving">データ受信中。。。</string>
 </resources>

@@ -4,9 +4,23 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
+	<TextView
+		android:id="@+id/TextView01"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/txt_search_keyword_title"
+	    />
+	<EditText
+		android:id="@+id/editKeyword"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/hint_keyword"
+		/>
+	<Button
+		android:id="@+id/btn_search"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:text="@string/btn_search"
+		/>
 </LinearLayout>
