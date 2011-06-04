@@ -20,7 +20,7 @@ public class FeedFactory extends BaseResponseFactory
 	private Generator mGenerator = null;
 
 	@Override
-	public void onStartTag(XmlPullParser parser) throws Exception
+	protected void onStartTag(XmlPullParser parser) throws Exception
 	{
 		String strName = parser.getName();
 		int iDepth = parser.getDepth();
@@ -98,7 +98,7 @@ public class FeedFactory extends BaseResponseFactory
 			String strDefault = getAttribute(parser, "isDefault");
 			if(strDefault != null && strDefault.equals("true"))
 			{
-				content.set_default(false);
+				content.set_default(true);
 			}
 			else
 			{
@@ -106,7 +106,8 @@ public class FeedFactory extends BaseResponseFactory
 			}
 			content.setExpression(getAttribute(parser, "expression"));
 			content.setDuration(convertInt(getAttribute(parser, "duration")));
-			content.setFormat(convertInt(getAttribute(parser, "expression")));
+			content.setFormat(convertInt(getAttribute(parser, "format")));
+			mContentList.add(content);
 		}
 		else if(strName.equals("player") && iDepth == 4)
 		{
@@ -132,8 +133,8 @@ public class FeedFactory extends BaseResponseFactory
 			Rating rating = new Rating();
 			rating.setMin(convertInt(getAttribute(parser, "min")));
 			rating.setMax(convertInt(getAttribute(parser, "max")));
-			rating.setNumRaters(convertInt(getAttribute(parser, "numRaters")));
-			rating.setAverage(convertInt(getAttribute(parser, "average")));
+			rating.setNumRaters(convertLong(getAttribute(parser, "numRaters")));
+			rating.setAverage(convertDouble(getAttribute(parser, "average")));
 		}
 		else if(strName.equals("statistics") && iDepth == 3)
 		{
@@ -224,6 +225,7 @@ public class FeedFactory extends BaseResponseFactory
 			{
 				mEntry.setAuthor(mAuthor);
 			}
+			mAuthor = null;
 		}
 		else if(strName.equals("generator") && iDepth ==2)
 		{

@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.adapter.SearchListAdapter;
 import com.example.data.Feed;
 import com.example.data.FeedFactory;
 import com.example.web.HttpServerIF;
@@ -46,7 +47,7 @@ public class YouTubeSearchTask extends AsyncTask<String, Void, Integer>
 	protected Integer doInBackground(String... arg0)
 	{
 		HttpServerIF svr = new HttpServerIF();
-		int iRet = svr.requestText(YOUTUBE_URL + PARAMS + arg0[0] + "&vq=" + arg0[1]);
+		int iRet = svr.requestText(YOUTUBE_URL + PARAMS + arg0[1] + "&vq=" + arg0[0]);
 
 		if(iRet == HttpStatus.SC_OK)
 		{
@@ -69,7 +70,7 @@ public class YouTubeSearchTask extends AsyncTask<String, Void, Integer>
 			{
 				SearchListAdapter adapter = new SearchListAdapter(mContext, mFeed.getEntry());
 				mList.setAdapter(adapter);
-				mText.setText(String.format("%d ～ %d / %d", mContext.getString(R.string.page_unit), mFeed.getStartIndex(), mFeed.getTotalResults()));
+				mText.setText(String.format("%d / %d" + mContext.getString(R.string.page_unit), mFeed.getStartIndex(), mFeed.getTotalResults()));
 			}
 		}
 

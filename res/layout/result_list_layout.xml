@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#000000">
+	<ImageView
+		android:id="@+id/imgThumbnail"
+		android:layout_width="100sp"
+		android:layout_height="100sp"
+		android:layout_alignParentLeft="true"
+		android:layout_marginRight="5sp"
+		/>
+	<TextView
+		android:id="@+id/txt_Title"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@+id/TextView01"
+		android:layout_toRightOf="@+id/imgThumbnail"
+		/>
+	<TextView
+		android:id="@+id/txt_author"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@+id/TextView01"
+		android:layout_below="@+id/txt_Title"
+		android:layout_toRightOf="@+id/imgThumbnail"
+		/>
+	<TextView
+		android:id="@+id/txt_updated"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@+id/TextView01"
+		android:layout_below="@+id/txt_author"
+		android:layout_toRightOf="@+id/imgThumbnail"
+		/>
+	<TextView
+		android:id="@+id/txt_duration"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@+id/TextView01"
+		android:layout_below="@+id/txt_updated"
+		android:layout_toRightOf="@+id/imgThumbnail"
+		/>
+</RelativeLayout>
